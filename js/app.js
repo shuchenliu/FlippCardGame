@@ -1,14 +1,98 @@
-/*
- * Create a list that holds all of your cards
- */
+// GLOBAL VARIABLES
+NUMBER_OF_ICONS = 8;
+
+// Icon List:
+// 16 slots => 8 pair of icons.
+// 'icons' is an array that holds 12 unique icons from Awesome-Fonts
+// Each time we shuffle the list and choose the first 8 ones that enter the game
+
+let icons = ["paper-plane",
+             "diamond",
+             "anchor",
+             "bolt",
+             "cube",
+             "leaf",
+             "bicycle",
+             "bomb",
+             "car",
+             "camera",
+             "key",
+             "money"];
+
+icons = shuffle(icons);
+
+// Card class:
+// basic Object-Oriented design for the game card
+
+const Card = function(icon) {
+  this.icon = icon;
+}
+
+// Card list
+// 'cards' is an array that holds 16 cards.
+// Each time we select first 8 icons from icon-array
+// and create 2 cards for each of the icon selected.
+// We shuffle the card list for further use.
+
+let cards = [];
+
+for (let i = 0; i < NUMBER_OF_ICONS; ++i) {
+  for (let j = 0; j < 2; ++j) {
+    let thisCard = new Card(icons[i]);
+    cards.push(thisCard);
+  }
+}
+
+cards = shuffle(cards);
+
+// Iterate through the card list to create HTML implementation for each of them
+// Add listerner to each card element.
+// Remove previous cards and append new cards.
+
+let deck = document.getElementsByClassName('deck')[0]
+deck.innerHTML = "";
+
+for (let i = 0; i < cards.length; ++i) {
+  let thisCard = cards[i];
+
+  // Create card container
+  let cardElement = document.createElement('li');
+  cardElement.classList.add('card');
+  // test use only:
+  // cardElement.classList.add('match');
+
+  // Create game card icon
+  let iconElement = document.createElement('i');
+  iconElement.classList.add('fa');
+  iconElement.classList.add('fa-' + thisCard.icon);
+
+  // Add listerner to each card element
+  cardElement.addEventListener('click', (e) => {
+    clickCard(e.target, thisCard);
+  });
+
+  // Put icon onto the card
+  // Put card onto the deck
+  cardElement.appendChild(iconElement);
+  deck.appendChild(cardElement)
+}
 
 
+
 /*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+ Game Logic Module
+*/
+
+const clickCard = (cardElement, thisCard) => {
+  cardElement.classList.toggle('show');
+  cardElement.classList.toggle('open');
+}
+
+
+
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -24,6 +108,7 @@ function shuffle(array) {
 
     return array;
 }
+
 
 
 /*
