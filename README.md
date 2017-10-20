@@ -1,20 +1,15 @@
-# Memory Game Project
+# Flip Card Game
 
-## Table of Contents
+**Author**: Shuchen Liu
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## Introduction
 
-## Instructions
+A basic match-and-win game that sports a move/time counter.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+###Game Start
+![start](pic/start.png)
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+### A matched pair
+![matched](pic/matched.png)
+### Winning message
+![win](pic/win.png)
