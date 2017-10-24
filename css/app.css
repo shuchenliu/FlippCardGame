@@ -112,14 +112,13 @@ h1 {
     margin-bottom: 10px;
 }
 
-.score-panel .stars {
+.stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
-
-.score-panel .stars li {
+.stars li {
     list-style: none;
     display: inline-block;
 }
@@ -165,6 +164,8 @@ h1 {
 .popup-content {
   font-size : 12pt;
   padding: 0 0.5em 0 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .popup-button {

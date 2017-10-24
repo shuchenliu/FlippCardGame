@@ -156,21 +156,28 @@ const changeTimer = num => {
 
 // Change moves
 const setMoveCounter = num => {
-  setStars(num);
+  setStars(num, document.getElementsByClassName('stars')[1].children);
   document.getElementsByClassName('moves')[0].innerHTML = num;
 }
 
 // Helper functions that change star's filling
-const setBlackStar = startElement => {
-  if (startElement.classList.contains('fa-star-o')) {
-    startElement.classList.remove('fa-star-o');
-    startElement.classList.add('fa-star');
+const setBlackStar = listItem => {
+  // console.log(starElement.classList);
+  starElement = listItem.children[0];
+  if (starElement.classList.contains('fa-star-o')) {
+    // console.log(true);
+    starElement.classList.remove('fa-star-o');
+    starElement.classList.add('fa-star');
   }
 }
 
-const setWhiteStar = startElement => {
-  startElement.classList.toggle('fa-star');
-  startElement.classList.toggle('fa-star-o');
+const setWhiteStar = listItem => {
+  starElement = listItem.children[0];
+  if (starElement.classList.contains('fa-star')) {
+    // console.log(true);
+    starElement.classList.remove('fa-star');
+    starElement.classList.add('fa-star-o');
+  }
 }
 
 
@@ -272,6 +279,7 @@ const showPopUp = (moves, time) => {
   // edit pop-up content
   popUp.getElementsByTagName('span')[0].innerText = moves;
   popUp.getElementsByTagName('span')[1].innerText = time;
+  setStars(moves, document.getElementsByClassName('stars')[0].children);
 
   // delay pop-up showing for animation
   setTimeout(() => {
@@ -299,25 +307,19 @@ function shuffle(array) {
 }
 
 // Set stars according moves
-const setStars = (num) => {
-  let stars = document.getElementsByClassName('fa-star');
-
+const setStars = (num, stars) => {
   if (num === 0) {
     [].forEach.call(stars, (star) => {
       setBlackStar(star);
     })
   }
 
-  if (num === 6) {
+  if (num >= 6) {
     setWhiteStar(stars[2]);
   }
 
-  if (num === 12) {
+  if (num >= 12) {
     setWhiteStar(stars[1]);
-  }
-
-  if (num === 20) {
-    setWhiteStar(stars[0]);
   }
 }
 
@@ -328,7 +330,7 @@ const setStars = (num) => {
 ***/
 
 // reset button and overlay only
-// needs to be set once for a faster reloading 
+// needs to be set once for a faster reloading
 resetButtonSetUp();
 setUpOverlay();
 newGame();
