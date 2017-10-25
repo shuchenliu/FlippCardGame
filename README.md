@@ -6,7 +6,8 @@
 
 A basic match-and-win game that sports a move/time counter.
 
-###Game Start
+###Game Start 
+
 To load the game, open `index.html` with any modern browser or visit [here](https://shuchenliu.github.io/FlippCardGame)
 
  The rule is to find all 8 pair of cards that share the same icon.  Click on a card to flip it and to reveal the icon it bears.
