@@ -44,7 +44,8 @@ const newGame = () => {
     resetStats();
     setMoveCounter(0);
     drawCards();
-    setGameTimer();
+    clearInterval(TIMER_ID);
+    changeTimer(0);
 }
 
 const resetStats = () => {
@@ -142,7 +143,6 @@ const setUpOverlay = () => {
 
 // Set up Timer
 const setGameTimer = () => {
-  clearInterval(TIMER_ID);
   num = 0;
   TIMER_ID = setInterval(() => {
     changeTimer(num++);
@@ -156,6 +156,9 @@ const changeTimer = num => {
 
 // Change moves
 const setMoveCounter = num => {
+  if (num == 1) {
+    setGameTimer();
+  }
   setStars(num, document.getElementsByClassName('stars')[1].children);
   document.getElementsByClassName('moves')[0].innerHTML = num;
 }
