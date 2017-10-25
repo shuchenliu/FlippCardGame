@@ -7,7 +7,11 @@
 A basic match-and-win game that sports a move/time counter.
 
 ###Game Start
-A game will automatically start as the clock kicks off. The rule is to find all 8 pair of cards that share the same icon.  Click on a card to flip it and to reveal the icon it bears.
+To load the game, open `index.html` with any modern browser or visit [here](https://shuchenliu.github.io/FlippCardGame)
+
+ The rule is to find all 8 pair of cards that share the same icon.  Click on a card to flip it and to reveal the icon it bears.
+ 
+ A game will automatically start as the first card is clicked on and the clock will kick off.  
 ![start](pic/start.png)
 
 ### A matched pair
